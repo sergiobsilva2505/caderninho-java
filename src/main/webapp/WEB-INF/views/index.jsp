@@ -39,89 +39,107 @@
         </div>
     </div>
     <div class="container mt-3 p-3 border border-secondary rounded-3">
-        <h3>Novo</h3>
-        <form action="/index" method="post" >
-            <input type="text" name="id" value="20" hidden >
-            <div class="mb-3" >
-                <label class="form-label" for="description" >Descrição:</label>
-                <input class="form-control" type="text" name="description" id="description" required >
-            </div>
-            <div class="mb-3" >
-                <div class="row">
-                    <div class="col">
-                        <label class="form-label" for="value" >Valor:</label>
-                        <input class="form-control" type="number" id="value" name="value" min="0.1" step="0.01" value="0.0" required >
+        <button type="button" class="btn btn-outline-success mb-3" data-bs-toggle="modal" data-bs-target="#novaReceita">
+            Nova Receita
+        </button>
+        <div class="modal" id="novaReceita"><%-- MODAL DE RECEITAS--%>
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Nova receita</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
-                    <div class="col">
-                        <label class="form-label" for="date" >Data:</label>
-                        <input class="form-control"  name="date" id="date" type="date" required >
+                    <div class="modal-body">
+                        <form>
+                            <div class="row mb-3" >
+                                <label class="col-sm-2 col-form-label" for="description" >Descrição</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" name="description" id="description" required >
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label" for="value" >Valor</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="number" id="value" name="value" min="0.1" step="0.01" value="0.0" required >
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label" for="date" >Data</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control"  name="date" id="date" type="date" required >
+                                </div>
+                            </div>
+                            <fieldset class="row mb-3">
+                                <legend class="col-form-label col-sm-2 pt-0">Repetir</legend>
+                                <div class="col-sm-10">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="repeat" id="repeatYes" value="true">
+                                        <label class="form-check-label" for="repeatYes">
+                                            Sim
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="repeat" id="repeatNo" value="false" checked>
+                                        <label class="form-check-label" for="repeatNo">
+                                            Não
+                                        </label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="row mb-3 ">
+                                <label class="col-sm-2 col-form-label" for="numberOftimes" hidden >Em </label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="number" id="numberOftimes" name="numberOftimes" min="2" max="24" step="1" value="0" hidden required disabled >
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" type="submit" id="salvarReceita" >Salvar receita</button>
+                        </form>
                     </div>
                 </div>
             </div>
-            <div class="mb-3">
-                <div class="row">
-                    <div class="col">
-                        <div class="row">
-                            <div class="col">
-                                <label>Tipo:</label>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="type" id="receita" value="receita">
-                                    <label class="form-check-label" for="receita">
-                                        Receita
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="type" id="despesa" value="despesa" checked>
-                                    <label class="form-check-label" for="despesa">
-                                        Despesa
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" role="switch" id="repeat" >
-                                    <label class="form-check-label" for="repeat">Repetir</label>
-                                </div>
-                                <select class="form-select mt-2" aria-label="Default select example" >
-                                    <option disabled selected>Número de vezes</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                    <option value="13">13</option>
-                                    <option value="14">14</option>
-                                    <option value="15">15</option>
-                                    <option value="16">16</option>
-                                    <option value="17">17</option>
-                                    <option value="18">18</option>
-                                    <option value="19">19</option>
-                                    <option value="20">20</option>
-                                    <option value="21">21</option>
-                                    <option value="22">22</option>
-                                    <option value="23">23</option>
-                                    <option value="24">24</option>
-                                </select>
-                            </div>
-                        </div>
+        </div> <%-- FIM MODAL DE RCEITAS --%>
+
+        <button type="button" class="btn btn-outline-warning mb-3 m" data-bs-toggle="modal" data-bs-target="#novaDespesa">
+            Nova Despesa
+        </button>
+        <div class="modal" id="novaDespesa">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Nova receita</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
-                    <div class="col">
-                        <div class="form-check border border-info rounded-3 p-0 mb-0 ">
-                            <p class="text-center mt-4 mb-4 lead" >Saldo do mês: R$ ${sumIncomes - sumExpenses}</p>
-                        </div>
+                    <div class="modal-body">
+                        Modal body.. despesa
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
-            <p class="text-center m-0">
-                <input class="btn btn-primary " type="submit" value="Salvar">
-            </p>
-        </form>
+        </div><%-- FIM MODAL DE DESPESAS --%>
+<%--        Apagar daqui até  + --%>
+        <input type="text" name="id" value="20" hidden >
+        <div class="mb-3">
+            <div class="row">
+                <div class="col">
+                    <div class="form-check border border-3 border-success rounded-3 p-0 mb-0 ">
+                        <p class="text-center mt-4 mb-4 lead" >Receitas: R$ ${sumIncomes}</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-check border border-3 border-warning rounded-3 p-0 mb-0 ">
+                        <p class="text-center mt-4 mb-4 lead" >Despesas: R$ ${sumExpenses}</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-check border border-3 border-danger rounded-3 p-0 mb-0 ">
+                        <p class="text-center mt-4 mb-4 lead" >Saldo do mês: R$ ${sumIncomes - sumExpenses}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+<%--        + aqui --%>
     </div>
     <div class="container mt-3 mb-3 p-3 border border-secondary rounded-3">
         <div class="row">
@@ -159,8 +177,11 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="2">Total de receitas</td>
-                            <td colspan="3" class = "text-md-end">${sumIncomes}</td>
+                            <td>Total de receitas</td>
+                            <td></td>
+                            <td  class="text-md-end">${sumIncomes}</td>
+                            <td></td>
+                            <td></td>
                         </tr>
                     </tfoot>
                 </table>
@@ -200,8 +221,11 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="2">Total de depesas</td>
-                            <td colspan="3" class= "text-md-end">${sumExpenses}</td>
+                            <td>Total de depesas</td>
+                            <td></td>
+                            <td class= "text-md-end">${sumExpenses}</td>
+                            <td></td>
+                            <td></td>
                         </tr>
                     </tfoot>
                 </table>
@@ -209,8 +233,6 @@
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
             integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
