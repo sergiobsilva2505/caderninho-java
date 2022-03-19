@@ -1,0 +1,8 @@
+
+CREATE TABLE IF NOT EXISTS annotations(
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    description VARCHAR(255) NOT NULL,
+    value DECIMAL(19,2) NOT NULL,
+    created_at DATE NOT NULL,
+    type ENUM ('INCOME', 'EXPENSE')
+);
