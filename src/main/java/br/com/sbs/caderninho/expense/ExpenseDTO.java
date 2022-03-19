@@ -1,20 +1,20 @@
-package br.com.sbs.caderninho.income;
+package br.com.sbs.caderninho.expense;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class IncomeDTO {
+public class ExpenseDTO {
 
     private final Long id;
     private final String description;
     private final BigDecimal value;
     private final LocalDate createdAt;
 
-    public IncomeDTO(Income income) {
-        this.id = income.getId();
-        this.description = income.getDescription();
-        this.value = income.getValue();
-        this.createdAt = income.getCreatedAt();
+    public ExpenseDTO(Expense expense) {
+        this.id = expense.getId();
+        this.description = expense.getDescription();
+        this.value = expense.getValue();
+        this.createdAt = expense.getCreatedAt();
     }
 
     public Long getId() {
@@ -32,5 +32,4 @@ public class IncomeDTO {
     public LocalDate getCreatedAt() {
         return createdAt;
     }
-
 }
